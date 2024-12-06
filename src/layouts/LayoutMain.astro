@@ -1,0 +1,44 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/Navbar.astro';
+interface Props {
+	title: string;
+	initTitle: string;
+}
+/* destructuring props */
+const {title,initTitle} =Astro.props;
+
+/* estilos globlales */
+import '.././styles/global.css';
+---
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- transiciones -->
+		 <ViewTransitions/>
+		
+	</head>
+	<body>
+		<!-- navbar -->
+		<Navbar/>
+		<h1>{initTitle}</h1>	
+
+<!-- resto del contenido de la pagina va en slot  -->
+	<main>
+		<slot/>
+	</main>
+
+	<!-- footer -->
+		<footer>
+			<p>© 2023 - Todos los derechos reservados</p>
+		</footer>
+		
+	<body/>	
+		
+</html>
+		
+		
