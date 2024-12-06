@@ -1,33 +1,40 @@
 ---
+import Navbar from '../components/Navbar.astro'
+import LayoutMain from '../layouts/LayoutMain.astro'
 
-const title = 'First App Astro'
-const initTitle = 'Primera aplicacion con astro'
 
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		
-	</head>
-	<body>
-		<h1>{initTitle}</h1>
 
+
+	<LayoutMain title = "First App Astro" initTitle = 'Home page'>
 		
+
+		<p >Momento actual: {new Date().toLocaleTimeString()}</p>
+
 		<p id="current-time">Momento actual: {new Date().toLocaleTimeString()}</p>
 
+		
+
 		<script>
+			// Client Only: Update the current time every second
+			const footer = document.querySelector('footer');
+			const tiempoReal =document.getElementById('current-time');
+
 			setInterval(() => {
-			  const tiempoReal =document.getElementById('current-time');
 			  if (tiempoReal) {
 				tiempoReal.textContent = `Momento actual: ${new Date().toLocaleTimeString()}`;
 			  }
 			}, 1000);
+
+			
+			const currentYear = new Date().getFullYear();
+
+			if (footer){
+				footer.innerHTML = `<p>© ${currentYear} - Todos los derechos reservados</p>`;
+			}
+			
 		  </script>
-		
-	</body>
-</html>
+	</LayoutMain>
+
+

@@ -1,19 +1,17 @@
 ---
-const title = 'First App Astro'
-const initTitle = 'About page'
+/* componets: */
+import Navbar from "../components/Navbar.astro"
+import LayoutMain from "../layouts/LayoutMain.astro"
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		
-	</head>
-	<body>
-		<h1>{initTitle}</h1>
-	</body>
-</html>
+<LayoutMain title = "First App Astro" initTitle = 'About page'>
+	<p>Content about</p>
+</LayoutMain>
+
+	<!-- estilos en scope solo aca!! -->	
+
+	<style is:inline>
+		h1 {
+			color: red;
+		}
+	</style>
